@@ -7,10 +7,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="http://shape2prog.csail.mit.edu/images/favicon.ico">
-    <meta name="description" content="Recommendation with User Active Disclosing Willingness">
-    <meta name="keywords" content="Recommendation with User Active Disclosing Willingness">
+    <meta name="description"
+        content="Would You like Your Behaviors to be Trained? a User Controllable Recommendation Framework">
+    <meta name="keywords"
+        content="Would You like Your Behaviors to be Trained? a User Controllable Recommendation Framework">
 
-    <title>Recommendation</title>
+    <title>IFRQE</title>
     <link rel="stylesheet" href="asset/font.css">
     <link rel="stylesheet" href="asset/main.css">
 
@@ -22,7 +24,7 @@
         <div class="container">
 
             <div class="content project_title">
-                <h1>Recommendation with User Active Disclosing Willingness</h1>
+                <h1>Would You like Your Behaviors to be Trained? a User Controllable Recommendation Framework</h1>
             </div>
 
             <div class="content project_headline">
@@ -43,22 +45,29 @@
                         <font size=3>
                             Recommender system has been deployed in a large amount of real-world applications,
                             profoundly influencing people's daily life and production.
-                            Traditional recommender models mostly collect as comprehensive as possible user behaviors
-                            for accurate preference estimation.
-                            However, considering the privacy, preference shaping and other issues, the users may not
-                            want to disclose all their behaviors for training the model.
+                            Traditional recommender models mostly collect as much as possible user information to
+                            accurate estimate the user preference.
+                            However, in real-world scenarios, the users may not want all their behaviors to join into
+                            the model training process.
+                            For example, the user may want to actively edit her profile by removing the items which are
+                            incorrectly clicked or purchased for the other people.
                             In this paper, we study a novel recommendation paradigm, where the users are allowed to
-                            indicate their "willingness" on disclosing different behaviors, and the models are
-                            optimized by trading-off the recommendation quality as well as the violation of the user
-                            "willingness".
-                            More specifically, we formulate the recommendation problem as a multiplayer game, where the
-                            action is a selection vector representing whether the items are involved into the model
-                            training.
-                            For efficiently solving this game, we design a tailored algorithm based on influence
-                            function to lower the time cost for recommendation quality exploration, and also extend it
-                            with multiple anchor selection vectors.
-                            We conduct extensive experiments to demonstrate the effectiveness of our model on balancing
-                            the recommendation quality and user disclosing willingness.
+                            indicate their willingness on letting different behaviors to train the model, and the
+                            models are optimized to maximize the utility which trades-off the recommendation performance
+                            and the violation of the user willingness.
+                            More specifically, we formulate the recommendation problem as a multiplayer game.
+                            Each user is a player, and the player action is a selection vector representing whether the
+                            user would like to leverage her interacted items to train the model.
+                            For efficiently solving this game, we design an influence function based model, which can
+                            approximate the recommendation performances for different actions without re-optimizing the
+                            model.
+                            In addition, we also improve the above model by deploying multiple anchor actions for the
+                            influence function, which is expected to improve the performance approximation accuracy.
+                            At last, we theoretically analyze the convergence rate of our algorithm and demonstrate the
+                            superiority of introducing multiple anchor actions.
+                            We conduct extensive experiments based on both simulation and real-world datasets to
+                            demonstrate the effectiveness of our models on balancing the recommendation quality and user
+                            willingness.
                         </font>
                     </p>
                 </div>
@@ -74,15 +83,16 @@
                             <ul class="download">
                                 <font size=3>
                                     <li>We propose a novel recommendation paradigm, where the users can explicitly
-                                        indicate their disclosing willingness, and the model needs to trade-off the
-                                        recommendation quality and user willingness.</li>
-                                    <li>To solve the above problem, we formulate the recommendation task as a
-                                        multi-player game, and design two influence function based algorithms to solve
-                                        the game efficiently.
+                                        indicate their willingness on leveraging different items to train the model.
                                     </li>
-                                    <li>Extensive experiments are conducted to verify the superiorities of our model
+                                    <li>To solve the above problem, we formulate the recommendation task as a
+                                        multiplayer game, and design two influence function based models to solve the
+                                        game efficiently.</li>
+                                    <li>We theoretically analyze our models by providing the convergence rate of the
+                                        learning algorithm and demonstrating the superiority of multiple anchor
+                                        selection vectors.</li>
+                                    <li> Extensive experiments are conducted to verify the effectiveness of our model
                                         based on both synthetic and real-world datasets.</li>
-
                                 </font>
                             </ul>
                             </p>
@@ -213,8 +223,7 @@
                     </div>
                     <p>where the lambda is the parameter that balances the recommendation quality and user willingness,
                         the iteration number M denotes the number of times we repeat the experiment, the L denotes
-                        the iteration number of online mirror descent, the T denotes the number of anchors and the Nj
-                        for computing H^-1 denotes the iteration number for computing the approximation of H^-1.
+                        the iteration number of online mirror descent, the T denotes the number of anchors.
                     </p>
                 </div>
             </div>
